@@ -24,7 +24,7 @@ int	main(void)
 	use_default_colors();	// Set the background to default.
 	init_pair(1, COLOR_YELLOW, -1); // Inisial forground and let the default background
 	init_pair(2, COLOR_CYAN, -1);
-
+	//box(stdscr, 0,0);	//box
 	getmaxyx(stdscr, row, col);
 	row = 1;
 
@@ -41,19 +41,20 @@ int	main(void)
 	getmaxyx(stdscr, row, col);
 	attron(A_BOLD | COLOR_PAIR(2));
 	// Sections
-	mvprintw(row - 10, 2, "[1] - 42Program");
-	mvprintw(row - 8, 2, "[2] - Web Development");
-	mvprintw(row - 6, 2, "[3] - Grphical Programming");
+	mvprintw(10, 2, "[1] - 42Program");
+	mvprintw(12, 2, "[2] - Web Development");
+	mvprintw(14, 2, "[3] - Grphical Programming");
+	mvprintw(row - 2, col - 12, "[0] - EXIT");
 	attroff(A_BOLD | COLOR_PAIR(2));
 	
-	option = getch();
-	if (option == '1')
+	while ((option = getch()) != '0')
 	{
-		ft_print_projects(row, col);
+		if (option == '1')
+			ft_42program();
 	}
 
-	refresh();
-	getch();	
+	werase(stdscr);
+	refresh();	
 	endwin();
 
 	return (0);

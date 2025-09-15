@@ -2,7 +2,8 @@
 # define GET_INFO_H
 
 #include <ncurses.h>
-void	ft_42program();
+
+void	ft_42program(void);
 
 
 #endif
