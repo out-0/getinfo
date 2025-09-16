@@ -1,11 +1,10 @@
 #include "getinfo.h"
-#include <ncurses.h>
-#include <string.h>
 
 int	main(void)
 {
-	int	row, col;
-	int	index, option;
+	t_windows	win;
+	int		row, col;
+	int		index, option;
 	const char	*title[] = {
 	"  ____ _____ _____   ___ _   _ _____ ___  ",
 	" / ___| ____|_   _| |_ _| \\ | |  ___/ _ \\ ",
@@ -24,10 +23,11 @@ int	main(void)
 	use_default_colors();	// Set the background to default.
 	init_pair(1, COLOR_YELLOW, -1); // Inisial forground and let the default background
 	init_pair(2, COLOR_CYAN, -1);
-	//box(stdscr, 0,0);	//box
+//	box(stdscr, 0,0);	//box
 	getmaxyx(stdscr, row, col);
+	
+	
 	row = 1;
-
 	// enable the attribute
 	attron(COLOR_PAIR(1) | A_BOLD);
 	// Print the ascii art title
@@ -41,9 +41,9 @@ int	main(void)
 	getmaxyx(stdscr, row, col);
 	attron(A_BOLD | COLOR_PAIR(2));
 	// Sections
-	mvprintw(12, 2, "[1] - 42Program");
-	mvprintw(14, 2, "[2] - Web Development");
-	mvprintw(16, 2, "[3] - Grphical Programming");
+	mvprintw(14, 2, "[1] - 42Program");
+	mvprintw(16, 2, "[2] - Web Development");
+	mvprintw(18, 2, "[3] - Grphical Programming");
 	mvprintw(row - 2, col - 12, "[0] - EXIT");
 	attroff(A_BOLD | COLOR_PAIR(2));
 	
@@ -51,7 +51,7 @@ int	main(void)
 	{
 		if (option == '1')
 		{
-			ft_42program();
+			ft_42program(&win);
 		}
 	}
 

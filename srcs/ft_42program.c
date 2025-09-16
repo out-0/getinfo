@@ -1,35 +1,44 @@
 #include "../getinfo.h"
 
 // Print the programs available at 42program and the resource for them (often links)
-void	ft_42program()
+void	ft_42program(t_windows *win)
 {
-	WINDOW	*projects;
 	int	row, col, option;
 
 	getmaxyx(stdscr, row, col);	// Get the stadard screen sizes
-	projects = newwin(row - 12, col, 12, 0);	// Inisial the new window
+	win->projects = newwin(row / 2, col, row / 2, 0);	// Inisial the new window
 //	box(projects, 0, 0);	// The box border on the window
-	getmaxyx(projects, row, col);	// Reinisialize the currect window rows and columns
+	getmaxyx(win->projects, row, col);	// Reinisialize the currect window rows and columns
 
-	wattron(projects, COLOR_PAIR(2) | A_BOLD);
+	wattron(win->projects, COLOR_PAIR(2) | A_BOLD);
 	
-	mvwprintw(projects, 1, 2, "[1] - Libft");
-	mvwprintw(projects, 2, 2, "[2] - get next line");
-	mvwprintw(projects, 3, 2, "[3] - printf");
-	mvwprintw(projects, 4, 2, "[4] - Born2beRoot");
-	mvwprintw(projects, 5, 2, "[5] - FDF");
-	mvwprintw(projects, row - 2, col - 12, "[0] - BACK");
+	mvwprintw(win->projects, 3, 2, "[1] - Libft");
+	mvwprintw(win->projects, 4, 2, "[2] - get next line");
+	mvwprintw(win->projects, 5, 2, "[3] - printf");
+	mvwprintw(win->projects, 6, 2, "[4] - Born2beRoot");
+	mvwprintw(win->projects, 7, 2, "[5] - FDF");
+	mvwprintw(win->projects, row - 2, col - 12, "[0] - BACK");
 
-	wattroff(projects, COLOR_PAIR(2) | A_BOLD);
-	wrefresh(projects);
+	wattroff(win->projects, COLOR_PAIR(2) | A_BOLD);
+	wrefresh(win->projects);
 
-	while ((option = wgetch(projects)) != '0')
+	while ((option = wgetch(win->projects)) != '0')
 	{
+		if (option == '1')
+			ft_libft(win);
+	//	else if (option == '2')
+	//		get_next_line();
+	//	else if (option == '3')
+	//		printf();
+	//	else if (option == '4')
+	//		born2beroot();
+	//	else if (option == '5')
+	//		fdf();
 
 	}
-	werase(projects);
-	wrefresh(projects);
-	delwin(projects);
+	werase(win->projects);
+	wrefresh(win->projects);
+	delwin(win->projects);
 	touchwin(stdscr);
 	wrefresh(stdscr);
 	return ;
