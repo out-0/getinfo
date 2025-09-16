@@ -1,4 +1,4 @@
-NAME	= program
+NAME	= getinfo
 CC	= cc
 #CFLAGS	= -Wall
 

@@ -41,16 +41,18 @@ int	main(void)
 	getmaxyx(stdscr, row, col);
 	attron(A_BOLD | COLOR_PAIR(2));
 	// Sections
-	mvprintw(10, 2, "[1] - 42Program");
-	mvprintw(12, 2, "[2] - Web Development");
-	mvprintw(14, 2, "[3] - Grphical Programming");
+	mvprintw(12, 2, "[1] - 42Program");
+	mvprintw(14, 2, "[2] - Web Development");
+	mvprintw(16, 2, "[3] - Grphical Programming");
 	mvprintw(row - 2, col - 12, "[0] - EXIT");
 	attroff(A_BOLD | COLOR_PAIR(2));
 	
 	while ((option = getch()) != '0')
 	{
 		if (option == '1')
+		{
 			ft_42program();
+		}
 	}
 
 	werase(stdscr);
