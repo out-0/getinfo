@@ -41,9 +41,9 @@ int	main(void)
 	getmaxyx(stdscr, row, col);
 	attron(A_BOLD | COLOR_PAIR(2));
 	// Sections
-	mvprintw(14, 2, "[1] - 42Program");
-	mvprintw(16, 2, "[2] - Web Development");
-	mvprintw(18, 2, "[3] - Grphical Programming");
+	mvprintw((row * 0.5) + 4, 2, "[1] - 42Program");
+	mvprintw((row * 0.5) + 6, 2, "[2] - Web Development");
+	mvprintw((row * 0.5) + 8, 2, "[3] - Grphical Programming");
 	mvprintw(row - 2, col - 12, "[0] - EXIT");
 	attroff(A_BOLD | COLOR_PAIR(2));
 	
