@@ -34,8 +34,8 @@ void	ft_42program(t_windows *win)
 	//		get_next_line();
 	//	else if (option == '3')
 	//		printf();
-	//	else if (option == '4')
-	//		born2beroot();
+		else if (option == '4')
+			ft_born2beroot(win);
 	//	else if (option == '5')
 	//		fdf();
 

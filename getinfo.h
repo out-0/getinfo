@@ -1,6 +1,9 @@
 #ifndef GET_INFO_H
 # define GET_INFO_H
 
+# define MIN_ROWS 20
+# define MIN_COLS 54
+
 #include <ncurses.h>
 #include <stdlib.h> // For system()
 #include <string.h> // For strlen()
@@ -11,13 +14,14 @@ typedef struct s_windows
 {
 	WINDOW	*projects;
 	WINDOW	*libft;
+	WINDOW	*born2beroot;
 	
 }	t_windows;
 
 void	ft_draw_menu(void);
 void	ft_42program(t_windows *win);
 void	ft_libft(t_windows *win);
-void	ft_porn2beroot(t_windows *win);
+void	ft_born2beroot(t_windows *win);
 
 void	ft_handle_window_change(int signal);	// Handle resizing
 void	ft_opening_message(WINDOW *previous_window);	// Print link opening message

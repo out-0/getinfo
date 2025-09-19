@@ -1,8 +1,5 @@
 #include "getinfo.h"
 
-// Function declaration
-void	ft_draw_menu();
-
 int	main(void)
 {
 	t_windows	win;
@@ -35,7 +32,7 @@ int	main(void)
 // Draw the main menu to the standard screen
 void	ft_draw_menu(void)
 {
-	int			row, col, index = 0;
+	int		row, col, index = 0;
 	const char	*title[] = {
 		"  ____ _____ _____   ___ _   _ _____ ___  ",
 		" / ___| ____|_   _| |_ _| \\ | |  ___/ _ \\ ",
@@ -46,7 +43,14 @@ void	ft_draw_menu(void)
 	};
 
 	getmaxyx(stdscr, row, col);
-	row = 1;
+	// Check if the rows and cols is soo small
+	if (row < MIN_ROWS || col < MIN_COLS)
+	{
+		mvprintw(row * 0.5, (col - 28) * 0.5, "Please resize your terminal!");
+		refresh();
+		return ;
+	}
+	row = row * 0.2;
 
 	attron(COLOR_PAIR(1) | A_BOLD);
 	while (title[index] != NULL)

@@ -17,17 +17,17 @@ void	ft_libft(t_windows *win)
 	wattron(win->libft, A_BOLD);
 	wattron(win->libft, COLOR_PAIR(2));
 	mvwprintw(win->libft, 2, 2, "Articles:");
-	mvwprintw(win->libft, 4, 4, "[1] - Notion: Libraries expalination"); 
-	mvwprintw(win->libft, 6, 4, "[2] - Github: Simple man for functions");
-	mvwprintw(win->libft, 8, 4, "[3] - Videos: Explain shared and static libs");
+	mvwprintw(win->libft, 4, 2, "[1] - Notion: Libraries"); 
+	mvwprintw(win->libft, 6, 2, "[2] - Github: Simple man");
+	mvwprintw(win->libft, 8, 2, "[3] - Videos: shared and static");
 	wattron(win->libft, COLOR_PAIR(2));
 
 	// Solutions part...
 	mvwprintw(win->libft, 2, col / 2, "Solutions:");
 	wattron(win->libft, COLOR_PAIR(2));
-	mvwprintw(win->libft, 4, (col / 2) + 2, "[4] - Libft Rewrite");
-	mvwprintw(win->libft, 6, (col / 2) + 2, "[5] - 1337 | libft | Static library in C");
-	mvwprintw(win->libft, 8, (col / 2) + 2, "[6] - Github repo solution");
+	mvwprintw(win->libft, 4, (col * 0.5), "[4] - Libft Rewrite");
+	mvwprintw(win->libft, 6, (col * 0.5), "[5] - libft Static library");
+	mvwprintw(win->libft, 8, (col * 0.5), "[6] - Github repo solution");
 	wattron(win->libft, COLOR_PAIR(2));
 
 	mvwprintw(win->libft,row - 1, col - 12, "[0] - BACK");
