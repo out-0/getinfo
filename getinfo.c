@@ -10,6 +10,7 @@ int	main(void)
 	cbreak();                // Disable line buffering
 	start_color();           // Enable colors
 	use_default_colors();    // Use default terminal background
+	curs_set(0);
 	init_pair(1, COLOR_YELLOW, -1);
 	init_pair(2, COLOR_CYAN, -1);
 
